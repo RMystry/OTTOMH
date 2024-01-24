@@ -73,5 +73,7 @@ namespace GGJ
                 Gizmos.DrawWireSphere(interactableHit.point, 0.2f);
             }
         }
+
+
     }
 }
