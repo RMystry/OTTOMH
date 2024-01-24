@@ -27,6 +27,8 @@ namespace GGJ
         [Header("Settings")]
         [SerializeField]
         private GameObject m_playerPrefab;
+        [SerializeField]
+        private Transform m_cameraLookAtTarget;
 
 
 
@@ -68,15 +70,16 @@ namespace GGJ
                 return false;
             }
 
-
             // we've checked the other possibilities, so now we can spawn the player and set the instance.
             m_playerInstance = Instantiate(m_playerPrefab, spawnLocation, Quaternion.identity);
             m_playerInstance.transform.parent = null;
             m_playerInstance.name = "Player";
 
 
-            m_cinemachineVCamera.Follow = m_playerInstance.transform;
-            m_cinemachineVCamera.LookAt = m_playerInstance.transform;
+            m_cameraLookAtTarget.GetComponent<FollowTarget>().target = m_playerInstance.transform;
+
+
+            GetComponent<PlayerLook>().SetPlayerTarget(m_playerInstance.transform);
 
             if(m_playerInstance.GetComponent<PlayerHandler>() != null)
             {

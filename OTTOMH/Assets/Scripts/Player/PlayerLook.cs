@@ -22,7 +22,10 @@ namespace GGJ
         [SerializeField]
         private bool debug;
 
-        private void Awake()
+        private Transform playerTarget;
+
+
+        private void Start()
         {
             if(targetCamera == null )
             {
@@ -31,6 +34,10 @@ namespace GGJ
         }
 
 
+        public void SetPlayerTarget(Transform playerTarget)
+        {
+            this.playerTarget = playerTarget;
+        }
 
         private void Update()
         {
@@ -43,11 +50,33 @@ namespace GGJ
             }
             if (Physics.Raycast(ray, out interactableHit, 1000f, interactableLayer))
             {
-                targetInteractable = interactableHit.collider.gameObject;
+
+                if (interactableHit.transform.parent != null)
+                {
+                    targetInteractable = interactableHit.transform.parent.gameObject;
+                }
+                else
+                {
+                    targetInteractable = interactableHit.collider.gameObject;
+                }
+                
+                if(targetInteractable.GetComponent<Outline>() != null)
+                    targetInteractable.GetComponent<Outline>().enabled = true;
             }
-            else
+            else if (targetInteractable != null)
             {
+                if (targetInteractable.GetComponent<Outline>() != null)
+                    targetInteractable.GetComponent<Outline>().enabled = false;
+
                 targetInteractable = null;
+            }
+
+
+            // now we need to have the player look at the position. Let's see if this works.
+
+            if (playerTarget != null)
+            {
+                playerTarget.LookAt(environmentLookPosition);
             }
         }
 
@@ -73,8 +102,5 @@ namespace GGJ
                 Gizmos.DrawWireSphere(interactableHit.point, 0.2f);
             }
         }
-
-        public void SetPlayer()
-        { }
     }
 }
