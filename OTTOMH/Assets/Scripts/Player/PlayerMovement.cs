@@ -67,7 +67,7 @@ namespace GGJ
 
         private void InputDodge()
         {
-
+            // moves a set distance towards the forward direction.
         }
 
         #endregion
