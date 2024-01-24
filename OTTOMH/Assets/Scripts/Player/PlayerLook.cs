@@ -74,6 +74,7 @@ namespace GGJ
             }
         }
 
-
+        public void SetPlayer()
+        { }
     }
 }

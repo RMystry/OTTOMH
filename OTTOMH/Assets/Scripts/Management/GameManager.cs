@@ -43,6 +43,12 @@ namespace GGJ
                 // we already have an instance of a GameManager, so we'll destroy this.
                 Destroy(gameObject);
             }
+
+
+            if(Camera.main.GetComponent<CinemachineBrain>() == null)
+            {
+                Camera.main.gameObject.AddComponent<CinemachineBrain>();
+            }
         }
 
 
