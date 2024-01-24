@@ -12,17 +12,19 @@ namespace GGJ
         public GameObject enemyPrefab;
         public static int ArenaSize = 25;
         public static int numberOfEnemies = 25;
-        public static GameObject[] allEnemys = new GameObject[numberOfEnemies];
+        public static List<GameObject> allEnemys = new List<GameObject>();
 
         public static Vector3 GoalPos = Vector3.zero;
 
         // Start is called before the first frame update
         void Start()
         {
+            allEnemys.Add(GameManager.Player);
             for (int i = 0; i < numberOfEnemies; i++)
             {
                 Vector3 pos = new Vector3 (Random.Range(-ArenaSize, ArenaSize), 0, Random.Range(-ArenaSize, ArenaSize));
-                allEnemys[i] = Instantiate(enemyPrefab, pos, Quaternion.identity);
+                allEnemys.Add(Instantiate(enemyPrefab, pos, Quaternion.identity));
+                
             }
         }
 
