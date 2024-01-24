@@ -230,6 +230,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   targetInteractable: {fileID: 0}
+  debug: 1
 --- !u!1 &416402985
 GameObject:
   m_ObjectHideFlags: 0
