@@ -208,7 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  neighbourDistance: 50
+  rotationSpeed: 4
+  neighbourDistance: 1
 --- !u!1 &4500917039811759370
 GameObject:
   m_ObjectHideFlags: 0

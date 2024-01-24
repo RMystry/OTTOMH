@@ -10,6 +10,7 @@ namespace GGJ
     {
 
         public GameObject enemyPrefab;
+        //chagne to be bounds of the arena
         public static int ArenaSize = 25;
         public static int numberOfEnemies = 25;
         public static List<GameObject> allEnemys = new List<GameObject>();
@@ -24,17 +25,12 @@ namespace GGJ
             {
                 Vector3 pos = new Vector3 (Random.Range(-ArenaSize, ArenaSize), 0, Random.Range(-ArenaSize, ArenaSize));
                 allEnemys.Add(Instantiate(enemyPrefab, pos, Quaternion.identity));
-                
             }
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Random.Range(0, 10000) < 50)
-            {
-               // GoalPos = new Vector3(Random.Range(-ArenaSize, ArenaSize), 0, Random.Range(-ArenaSize, ArenaSize));
-            }
         }
     }
 }

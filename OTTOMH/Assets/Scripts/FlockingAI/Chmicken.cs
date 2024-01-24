@@ -7,8 +7,8 @@ namespace GGJ
 {
     public class Chmicken : MonoBehaviour
     {
-        public float speed = 1.0f;
-        float rotationSpeed = 4.0f;
+        public float speed = 15.0f;
+        public float rotationSpeed = 4.0f;
         Vector3 averageHeading;
         Vector3 averagePosition;
         [SerializeField]float neighbourDistance = 10.0f;
@@ -32,6 +32,10 @@ namespace GGJ
         public void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
+            if(isLeader )
+            {
+                Gizmos.color = Color.red;
+            }
             Gizmos.DrawWireSphere(transform.position, neighbourDistance);
         }
 
@@ -53,8 +57,6 @@ namespace GGJ
                 {
                         ApplyRules();
                 }
-
-
                 transform.Translate(0, 0, Time.deltaTime * speed);
             }
         }
@@ -74,7 +76,7 @@ namespace GGJ
             int groupSize = 0;
             foreach(GameObject go in god)
             {
-                if(go != this.gameObject && go.GetComponent<Chmicken>().isPlayer)
+                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || go.GetComponent<Chmicken>().isLeader) && !this.isLeader)
                 {
                     dist = Vector3.Distance(go.transform.position, this.transform.position);
                     if(dist <= neighbourDistance)
