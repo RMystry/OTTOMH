@@ -32,6 +32,10 @@ namespace GGJ
         public void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
+            if(isLeader)
+            {
+                Gizmos.color = Color.red;
+            }
             Gizmos.DrawWireSphere(transform.position, neighbourDistance);
         }
 
@@ -51,10 +55,7 @@ namespace GGJ
                 }
                 else
                 {
-                    if (Random.Range(0, 5) < 1)
-                    {
                         ApplyRules();
-                    }
                 }
 
 
@@ -64,7 +65,7 @@ namespace GGJ
 
         void ApplyRules()
         {
-            GameObject[] god;
+            List<GameObject> god;
             god = ChmickenFlock.allEnemys;
 
             Vector3 vCenter = Vector3.zero;
@@ -77,7 +78,7 @@ namespace GGJ
             int groupSize = 0;
             foreach(GameObject go in god)
             {
-                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer))
+                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || go.GetComponent<Chmicken>().isLeader) && !this.isLeader)
                 {
                     dist = Vector3.Distance(go.transform.position, this.transform.position);
                     if(dist <= neighbourDistance)
@@ -87,11 +88,11 @@ namespace GGJ
 
                         if(dist < 1.0f)
                         {
-                           vAvoid = vAvoid + (this.transform.position = go.transform.position);
+                           vAvoid = vAvoid + (this.transform.position - go.transform.position);
                         }
 
                         Chmicken another = go.GetComponent<Chmicken>();
-                        //gSpeed = gSpeed + another.speed;
+                        gSpeed = gSpeed + another.speed;
                     }
                 }
             }
@@ -99,7 +100,7 @@ namespace GGJ
             if (groupSize >  0)
             {
                 vCenter = vCenter / groupSize + (goalPos - this.transform.position);
-               // speed = gSpeed/groupSize;
+                speed = gSpeed/groupSize;
 
                 Vector3 direction = (vCenter + vAvoid) - this.transform.position;
                 if(direction != Vector3.zero)
