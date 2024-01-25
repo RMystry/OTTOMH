@@ -50,18 +50,21 @@ namespace GGJ
             }
             if (Physics.Raycast(ray, out interactableHit, 1000f, interactableLayer))
             {
+                if(targetInteractable == null)
+                {
+                    Debug.Log("Found Interactable");
+                    if (interactableHit.transform.parent != null)
+                    {
+                        targetInteractable = interactableHit.transform.parent.gameObject;
+                    }
+                    else
+                    {
+                        targetInteractable = interactableHit.collider.gameObject;
+                    }
 
-                if (interactableHit.transform.parent != null)
-                {
-                    targetInteractable = interactableHit.transform.parent.gameObject;
+                    if (targetInteractable.GetComponent<Outline>() != null)
+                        targetInteractable.GetComponent<Outline>().enabled = true;
                 }
-                else
-                {
-                    targetInteractable = interactableHit.collider.gameObject;
-                }
-                
-                if(targetInteractable.GetComponent<Outline>() != null)
-                    targetInteractable.GetComponent<Outline>().enabled = true;
             }
             else if (targetInteractable != null)
             {
