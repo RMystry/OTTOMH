@@ -55,7 +55,7 @@ namespace GGJ
                 }
                 else
                 {
-                        ApplyRules();
+                    ApplyRules();
                 }
 
 
