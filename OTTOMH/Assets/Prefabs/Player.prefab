@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 3164687727200376122}
   - component: {fileID: 4965031684948868459}
   - component: {fileID: 6742451992385963299}
+  - component: {fileID: -429936862172787949}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -199,8 +200,22 @@ MonoBehaviour:
     m_Bits: 8
   m_dodgeDistance: 3
   m_dodgeSpeed: 20
-  m_dodgeCollisionOffset: 0.5
+  m_dodgeCooldown: 3
   m_dodgeCheckOffset: {x: 0, y: 0.25, z: 0}
+--- !u!114 &-429936862172787949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f54b871820b8ec4093e7d14656919d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  neighbourDistance: 10
 --- !u!1 &4500917039811759370
 GameObject:
   m_ObjectHideFlags: 0
