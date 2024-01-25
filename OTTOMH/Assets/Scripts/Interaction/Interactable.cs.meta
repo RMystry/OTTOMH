@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: bd8dc6ee7ca8e5f499cd2349b958d8f0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_interactablesSet: {fileID: 11400000, guid: 75264aab81590c543b61cd144ee95cd2,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,7 +13,11 @@ namespace GGJ
         private LayerMask environmentLayer, interactableLayer;
 
         [SerializeField]
-        private GameObject targetInteractable;
+        private InteractableVariable m_targetInteractable;
+        [SerializeField]
+        private GlobalEvent OnInteractableHovered;
+        [SerializeField]
+        private GlobalEvent OnInteractableNoLongerHovered;
 
         private RaycastHit interactableHit;
 
@@ -50,28 +54,28 @@ namespace GGJ
             }
             if (Physics.Raycast(ray, out interactableHit, 1000f, interactableLayer))
             {
-                if(targetInteractable == null)
+                if(m_targetInteractable.Value == null)
                 {
-                    Debug.Log("Found Interactable");
                     if (interactableHit.transform.parent != null)
                     {
-                        targetInteractable = interactableHit.transform.parent.gameObject;
+                        m_targetInteractable.SetValue(interactableHit.transform.parent.GetComponent<Interactable>());
                     }
                     else
                     {
-                        targetInteractable = interactableHit.collider.gameObject;
+                        m_targetInteractable.SetValue(interactableHit.collider.GetComponent<Interactable>());
                     }
 
-                    if (targetInteractable.GetComponent<Outline>() != null)
-                        targetInteractable.GetComponent<Outline>().enabled = true;
+                    m_targetInteractable.Value.Hover(true);
+                    OnInteractableHovered.Raise();
                 }
             }
-            else if (targetInteractable != null)
+            else if (m_targetInteractable.Value != null)
             {
-                if (targetInteractable.GetComponent<Outline>() != null)
-                    targetInteractable.GetComponent<Outline>().enabled = false;
+                OnInteractableNoLongerHovered.Raise();
+                m_targetInteractable.Value.Hover(false);
 
-                targetInteractable = null;
+
+                m_targetInteractable.SetValue(null);
             }
 
 

@@ -98,11 +98,6 @@ namespace GGJ
             // We will handle everything regarding the player (events and whatnot) here. Let's start with the player input events.
 
             SetupPlayerInputs(handler);
-
-
-
-
-
             handler.Register();
         }
 
@@ -113,8 +108,9 @@ namespace GGJ
                 Debug.LogError("Player Input Handler Is Not Set Up!");
                 return;
             }
-
             handler.ConnectPlayerMovementToInputs(m_inputHandler);
         }
+
+
     }
 }

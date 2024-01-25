@@ -9,7 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3cac7761c22574ebbbcd2f28fb1ec3, type: 3}
-  m_Name: CurrentHoveredInteractableGameObject
+  m_Script: {fileID: 11500000, guid: ff30e9c1ebebc92498b903e31412d90f, type: 3}
+  m_Name: Diary
   m_EditorClassIdentifier: 
-  Value: {fileID: 0}
+  weaponName: Diary
+  weaponDescription: Trauma dump on your enemies
+  weaponClass: 4
+  damage: 15
+  range: 25
+  attackSpeed: 1.25
+  weaponPrefab: {fileID: 0}
+  shotCount: 1
+  spread: 0.01

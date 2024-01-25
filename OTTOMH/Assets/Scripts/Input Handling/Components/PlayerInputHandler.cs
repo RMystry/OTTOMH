@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -34,7 +31,7 @@ namespace GGJ
 
         public event PlayerInputVector2 OnPlayerInputMove;
         public event PlayerInputButton OnPlayerInputAttack;
-        public event PlayerInputButton OnPlayerInputActivate;
+        public event PlayerInput OnPlayerInputActivate;
         public event PlayerInput OnPlayerInputDodge;
         public event PlayerInput OnPlayerInputDropItem;
         public event PlayerInput OnPlayerInputThrowWeapon;
@@ -155,11 +152,14 @@ namespace GGJ
                 Debug.Log($"Player Input Handler <> Activate Input {ctx.ReadValueAsButton()}");
             }
 
-            if (m_useUnityEvents)
+            if(!ctx.ReadValueAsButton())
             {
-                m_UnityEvents.OnPlayerActivateInput?.Invoke(ctx.ReadValueAsButton());
+                if (m_useUnityEvents)
+                {
+                    m_UnityEvents.OnPlayerActivateInput?.Invoke();
+                }
+                OnPlayerInputActivate?.Invoke();
             }
-            OnPlayerInputActivate?.Invoke(ctx.ReadValueAsButton());
         }
 
         private void PlayerAttack(InputAction.CallbackContext ctx)
@@ -197,7 +197,7 @@ namespace GGJ
         {
             public UnityEvent<Vector2> OnPlayerMoveInput;
             public UnityEvent<bool> OnPlayerAttackInput;
-            public UnityEvent<bool> OnPlayerActivateInput;
+            public UnityEvent OnPlayerActivateInput;
             public UnityEvent OnPlayerDodgeInput;
             public UnityEvent OnPlayerShoveInput;
             public UnityEvent OnPlayerDropItemInput;
