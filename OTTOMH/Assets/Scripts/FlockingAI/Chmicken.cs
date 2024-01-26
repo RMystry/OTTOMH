@@ -78,7 +78,8 @@ namespace GGJ
             int groupSize = 0;
             foreach(GameObject go in god)
             {
-                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || go.GetComponent<Chmicken>().isLeader) && !this.isLeader)
+                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || go.GetComponent<Chmicken>().isLeader)
+                    && (this.isLeader && go.GetComponent<Chmicken>().isPlayer))
                 {
                     dist = Vector3.Distance(go.transform.position, this.transform.position);
                     if(dist <= neighbourDistance)
