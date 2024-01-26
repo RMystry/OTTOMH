@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 2351182951374533563}
   - component: {fileID: 5786138104546419166}
   - component: {fileID: 1044002815287611032}
+  - component: {fileID: 2171385056047132521}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -237,8 +238,27 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
-  targetInteractable: {fileID: 0}
+  m_targetInteractable: {fileID: 11400000, guid: 8f27bd9693f4fb042bd8ae5726aca46c,
+    type: 2}
+  OnInteractableHovered: {fileID: 11400000, guid: c73d0cca7a6b688498e6ce54513eab6a,
+    type: 2}
+  OnInteractableNoLongerHovered: {fileID: 11400000, guid: 18c974095b9f96a4db8908044a301137,
+    type: 2}
   debug: 1
+--- !u!114 &2171385056047132521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3508258448567216826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f97a82c09cc44c8b03b6bebda45ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currentHoveredInteractable: {fileID: 11400000, guid: 8f27bd9693f4fb042bd8ae5726aca46c,
+    type: 2}
 --- !u!1 &5055719639752754867
 GameObject:
   m_ObjectHideFlags: 0
