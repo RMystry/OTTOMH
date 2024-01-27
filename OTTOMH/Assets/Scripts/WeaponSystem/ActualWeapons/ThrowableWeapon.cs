@@ -23,19 +23,6 @@ namespace GGJ
 
         }
 
-        public override void Attack()
-        {
-
-            GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.transform.rotation);
-
-            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-
-            Vector3 forceToAdd = cam.transform.forward * throwForce + cam.transform.up * throwUpwardForce;
-            projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
-
-
-        }
-
         private void Reset()
         {
         }
@@ -49,6 +36,18 @@ namespace GGJ
         void Update()
         {
         
+        }
+
+        public override bool Attack(Vector3 position, out Collider collision)
+        {
+            GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.transform.rotation);
+
+            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+
+            Vector3 forceToAdd = cam.transform.forward * throwForce + cam.transform.up * throwUpwardForce;
+            projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
+            collision = null;
+            return true;
         }
     }
 }
