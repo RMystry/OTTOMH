@@ -21,6 +21,8 @@ namespace GGJ
         [SerializeField] private RangedWeaponDescriptor rangedWeaponType;
         [SerializeField] private ThrownWeaponDescriptor thrownWeaponType;
 
+        public WeaponBase currentWeapon;
+
         public void CurrentWeaponWasChanged(WeaponDescriptor descriptor, AttackType attackType)
         {
             currentWeaponAttackType = attackType;
@@ -100,6 +102,12 @@ namespace GGJ
         }
 
         public void AttackWithArenaWeapon()
+        {
+
+        }
+
+
+        public void OnSuccessfulHit(Collider collider)
         {
 
         }
