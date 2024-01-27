@@ -21,7 +21,7 @@ namespace GGJ
         [SerializeField] private RangedWeaponDescriptor rangedWeaponType;
         [SerializeField] private ThrownWeaponDescriptor thrownWeaponType;
 
-        public WeaponBase currentWeapon;
+        
 
         public void CurrentWeaponWasChanged(WeaponDescriptor descriptor, AttackType attackType)
         {
@@ -86,9 +86,7 @@ namespace GGJ
 
         public void AttackWithMeleeWeapon()
         {
-            // gets information from melee weapon.
-
-            // we'll move a set distance if have lunge, and strike all enemies hit.
+            
         }
 
         public void AttackWithRangedWeapon()
@@ -107,7 +105,7 @@ namespace GGJ
         }
 
 
-        public void OnSuccessfulHit(Collider collider)
+        public void OnSuccessfulHit(Collider[] colliders)
         {
 
         }
