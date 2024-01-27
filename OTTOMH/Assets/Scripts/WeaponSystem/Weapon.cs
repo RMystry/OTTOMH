@@ -19,6 +19,7 @@ namespace GGJ
         public WeaponComponents components;
     }
 
+
     [CreateAssetMenu(menuName = "Gameplay/Weapons/Arena Effect", fileName = "New Arena Effect")]
     public class ArenaEffect : WeaponDescriptor
     {
