@@ -10,7 +10,7 @@ namespace GGJ
     {
 
         public GameObject enemyPrefab;
-        [SerializeField] public static int ArenaSize = 150;
+        [SerializeField] public static int ArenaSize = 30;
         [SerializeField] public int numberOfEnemies = 25;
         [SerializeField] public static int numberOfLeaders = 3;
         public static List<GameObject> allEnemys = new List<GameObject>();

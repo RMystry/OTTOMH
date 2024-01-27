@@ -25,7 +25,7 @@ namespace GGJ
             enemyMovement.stopMovement = true;
 
 
-            GetComponent<Rigidbody>().AddExplosionForce(500f, transform.position, 30f, 10f);
+            GetComponent<Rigidbody>().AddForce(-transform.forward * 35f, ForceMode.Impulse);
         }
 
         public void startRagdoll(ForceInfo force)

@@ -53,8 +53,6 @@ namespace GGJ
 
             Debug.Log($"Spawned: {randomItem} at {pos} relative to player");
             var GO = Instantiate(randomItem, GameManager.Player.transform.position + pos, Quaternion.identity);
-
-            GO.transform.position = GameManager.Player.transform.position;
         }
     }
 }
