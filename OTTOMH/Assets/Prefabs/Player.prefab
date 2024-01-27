@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 4965031684948868459}
   - component: {fileID: 6742451992385963299}
   - component: {fileID: -429936862172787949}
+  - component: {fileID: 6008203526328784586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -216,6 +217,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   neighbourDistance: 10
+--- !u!114 &6008203526328784586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b091671507e1f1c498660824aba527ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthRef:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  healthRegenerationRateRef:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  healthRegenerationDelayRef:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  OnCurrentHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4500917039811759370
 GameObject:
   m_ObjectHideFlags: 0

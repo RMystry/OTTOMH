@@ -28,7 +28,7 @@ namespace GGJ
 
 
 
-        private float currentHealth { get { return currentHealth; } set { CurrentHealthChanged(); currentHealth = value ; } }
+        public float currentHealth { get { return currentHealth; } private set { CurrentHealthChanged(); currentHealth = value ; } }
 
         private bool isDead = false;
         private bool canRegenerateHealth = false;
