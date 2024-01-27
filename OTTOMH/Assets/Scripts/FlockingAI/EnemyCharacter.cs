@@ -28,7 +28,7 @@ namespace GGJ
 
         public void ApplyEffects()
         {
-
+            //Apply status effects to all the stats
         }
 
 

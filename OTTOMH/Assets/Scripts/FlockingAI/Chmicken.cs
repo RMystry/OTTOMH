@@ -15,6 +15,7 @@ namespace GGJ
         bool turning = false;
         bool isPlayer;
         bool isLeader;
+        public GameObject GoalObject;
         // Start is called before the first frame update
         void Start()
         {
@@ -81,8 +82,24 @@ namespace GGJ
             {
                 //move to player or leader
                 //leader will only move towards player
-                
-                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || (go.GetComponent<Chmicken>().isLeader && !this.isLeader)))
+                if(GoalObject != null)
+                {    
+                    dist = Vector3.Distance(GoalObject.transform.position, this.transform.position);
+                    if (dist <= neighbourDistance)
+                    {
+                        vCenter += GoalObject.transform.position;
+                        groupSize++;
+
+                        if (dist < 1.0f)
+                        {
+                            vAvoid = vAvoid + (this.transform.position - GoalObject.transform.position);
+                        }
+                        Chmicken another = GoalObject.GetComponent<Chmicken>();
+                        gSpeed = gSpeed + another.speed;
+                    }
+                    goalPos = GoalObject.transform.position;
+                }
+                else if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || (go.GetComponent<Chmicken>().isLeader && !this.isLeader)))
                 {
                     dist = Vector3.Distance(go.transform.position, this.transform.position);
                     if(dist <= neighbourDistance)
