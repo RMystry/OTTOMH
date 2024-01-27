@@ -23,6 +23,7 @@ namespace GGJ
             {
                 isPlayer = true;
             }
+            //change this to work with a set number of predetermined leaders
             else if(Random.Range(0, 50) % 2 == 0)
             {
                 isLeader = true;
@@ -53,12 +54,12 @@ namespace GGJ
                         Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
                     speed = Random.Range(0.5f, 1);
                 }
-                else
+                else 
                 {
                     ApplyRules();
                 }
 
-
+                //change this to random movement
                 transform.Translate(0, 0, Time.deltaTime * speed);
             }
         }
@@ -72,14 +73,16 @@ namespace GGJ
             Vector3 vAvoid = Vector3.zero;
             float gSpeed = 1.0f;
 
-            Vector3 goalPos = ChmickenFlock.GoalPos;
+            var goalPos = Vector3.zero;
 
             float dist;
             int groupSize = 0;
             foreach(GameObject go in god)
             {
-                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || go.GetComponent<Chmicken>().isLeader)
-                    && (this.isLeader && go.GetComponent<Chmicken>().isPlayer))
+                //move to player or leader
+                //leader will only move towards player
+                
+                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || (go.GetComponent<Chmicken>().isLeader && !this.isLeader)))
                 {
                     dist = Vector3.Distance(go.transform.position, this.transform.position);
                     if(dist <= neighbourDistance)
@@ -91,14 +94,14 @@ namespace GGJ
                         {
                            vAvoid = vAvoid + (this.transform.position - go.transform.position);
                         }
-
+                        goalPos = go.transform.position;
                         Chmicken another = go.GetComponent<Chmicken>();
                         gSpeed = gSpeed + another.speed;
                     }
                 }
             }
 
-            if (groupSize >  0)
+            if (groupSize > 0)
             {
                 vCenter = vCenter / groupSize + (goalPos - this.transform.position);
                 speed = gSpeed/groupSize;
