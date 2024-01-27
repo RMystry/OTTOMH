@@ -72,10 +72,10 @@ namespace GGJ
             switch(currentWeaponAttackType)
             {
                 case AttackType.MELEE:
-                    hit = AttackWithMeleeWeapon(out collisions);
+                    hit = AttackWithMeleeWeapon(transform.forward, out collisions);
                     break;
                 case AttackType.RANGED:
-                    hit = AttackWithRangedWeapon(out collisions);
+                    hit = AttackWithRangedWeapon(transform.forward,out collisions);
                     break;
                 case AttackType.THROWN:
                     hit = AttackWithThrownWeapon(out collisions);
@@ -92,23 +92,23 @@ namespace GGJ
         }
 
 
-        private bool AttackWithMeleeWeapon(out Collider[] collisions)
+        private bool AttackWithMeleeWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
             throw new NotImplementedException();
             //return prefabHandler.UseWeapon<MeleeWeapon, MeleeWeaponDescriptor>(transform.position, meleeWeaponType, out collisions);
         }
 
-        private bool AttackWithRangedWeapon(out Collider[] collisions)
+        private bool AttackWithRangedWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
             return  prefabHandler.UseWeapon<RangedWeapon, RangedWeaponDescriptor>(transform.forward, rangedWeaponType, out collisions);
         }
 
-        private bool AttackWithThrownWeapon(out Collider[] collisions)
+        private bool AttackWithThrownWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
             return prefabHandler.UseWeapon<ThrowableWeapon, ThrownWeaponDescriptor>(transform.position, thrownWeaponType, out collisions);
         }
 
-        private bool AttackWithArenaWeapon(out Collider[] collisions)
+        private bool AttackWithArenaWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
             throw new NotImplementedException();
         }

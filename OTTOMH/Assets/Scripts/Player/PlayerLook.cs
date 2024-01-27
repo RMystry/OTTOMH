@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,6 +29,17 @@ namespace GGJ
 
         private Transform playerTarget;
 
+        public static PlayerLook Instance { get { return _instance; } }
+        private static PlayerLook _instance;
+        public static Vector3 targetPosition { get { return _instance.environmentLookPosition; } }
+
+        private void Awake()
+        {
+            if(_instance == null)
+            {
+                _instance = this;
+            }
+        }
 
         private void Start()
         {
