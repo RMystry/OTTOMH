@@ -119,6 +119,8 @@ GameObject:
   - component: {fileID: 6742451992385963299}
   - component: {fileID: -429936862172787949}
   - component: {fileID: 6008203526328784586}
+  - component: {fileID: 2445269857807815565}
+  - component: {fileID: 6556132746042194747}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -230,17 +232,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthRef:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 439866d03e680694d836842178d19d4f, type: 2}
   healthRegenerationRateRef:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 49ce3e25e78985e418151107d4d475ba, type: 2}
   healthRegenerationDelayRef:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 54e014ac5e4585a4a9a216eb105e1f20, type: 2}
   OnCurrentHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -248,6 +250,62 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2445269857807815565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275e0d7e1ed138745aa3be3b9c60257b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponAttackType: 0
+  attackModifier:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  meleeWeaponType: {fileID: 0}
+  arenaWeaponType: {fileID: 0}
+  rangedWeaponType: {fileID: 0}
+  thrownWeaponType: {fileID: 0}
+--- !u!114 &6556132746042194747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47861733b1d1b784a8d96744cc1f4ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickedUpWeapon1: {fileID: 0}
+  pickedUpWeapon2: {fileID: 0}
+  combinedWeaponsList: {fileID: 11400000, guid: d80a63abb29e261468d6427bc5ee2391,
+    type: 2}
+  currentWeapon: {fileID: 0}
+  OnCurrentWeaponChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2445269857807815565}
+        m_TargetAssemblyTypeName: GGJ.AttackHandler, GGJ
+        m_MethodName: CurrentWeaponWasChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPrefabSwitch:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4500917039811759370
