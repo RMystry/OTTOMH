@@ -7,8 +7,8 @@ namespace GGJ
     [RequireComponent(typeof(HealthHandler), typeof(AttackHandler), typeof(Chmicken))]
     public class EnemyCharacter : MonoBehaviour
     {
-        public HealthHandler HealthHandler;
-        public AttackHandler AttackHandler;
+        public HealthHandler _healthHandler;
+        public AttackHandler _attackHandler;
         public Chmicken MovementHandler;
         public int pollingRate = 10;
         public GameObject nearestObject;
@@ -16,14 +16,19 @@ namespace GGJ
         // Start is called before the first frame update
         void Start()
         {
-            HealthHandler = GetComponent<HealthHandler>();
-            AttackHandler = GetComponent<AttackHandler>();
+            _healthHandler = GetComponent<HealthHandler>();
+            _attackHandler = GetComponent<AttackHandler>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            
+        }
 
+        public void Attack()
+        {
+            _attackHandler.CommandAttack();
         }
 
         public void ApplyEffects()
@@ -36,7 +41,8 @@ namespace GGJ
         {
             if (polling == pollingRate)
             {
-                nearestObject = FindNearestObject();
+                this.GetComponent<Chmicken>().GoalObject = FindNearestObject();
+                nearestObject = this.GetComponent<Chmicken>().GoalObject;
                 polling = 0;
             }
             else
