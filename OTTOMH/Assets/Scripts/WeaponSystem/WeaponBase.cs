@@ -2,18 +2,8 @@
 
 namespace GGJ
 {
-    public abstract class WeaponBase : MonoBehaviour
+    public abstract class WeaponBase<T> : MonoBehaviour where T : WeaponDescriptor
     {
-        public abstract bool Attack(Vector3 position, out Collider collision);
-    }
-
-    public class RangedWeapon : WeaponBase
-    {
-
-        public override bool Attack(Vector3 position, out Collider collision)
-        {
-            collision = null;
-            return false;
-        }
+        public abstract bool Attack(Vector3 position, T descriptor, out Collider[] collision);
     }
 }
