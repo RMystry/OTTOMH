@@ -1,0 +1,85 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace GGJ
+{
+    [AddComponentMenu("Combat System/Attack Handler")]
+    [RequireComponent(typeof(WeaponHandler))]
+    public class AttackHandler : MonoBehaviour
+    {
+        // basically we will have a weapon descriptor that gives us all the information for what weapon stats we will be using.
+        public AttackType currentWeaponAttackType;
+
+        
+    }
+
+    [AddComponentMenu("Combat System/Weapon Handler")]
+    public class WeaponHandler : MonoBehaviour
+    {
+        public WeaponDescriptor pickedUpWeapon1;
+        public WeaponDescriptor pickedUpWeapon2;
+
+
+        public WeaponsList combinedWeaponsList;
+
+        public WeaponDescriptor currentWeapon;
+
+        public UnityEvent<WeaponDescriptor, AttackType> OnCurrentWeaponChanged;
+
+        public void PickedUpWeapon(WeaponDescriptor weapon)
+        {
+            // first we're going to check if either weapon is currently held.
+
+            // so now we have
+            if (pickedUpWeapon1 == null)
+            {
+                pickedUpWeapon1 = weapon;
+
+                currentWeapon = pickedUpWeapon1;
+            }
+            else if (pickedUpWeapon2 == null)
+            {
+                pickedUpWeapon2 = weapon;
+
+                // check combination.
+                currentWeapon = CheckWeaponComboList();
+            }
+            else if (pickedUpWeapon1 != null && pickedUpWeapon2 != null)
+            {
+                // both are filled so will remove the current weapon.
+                pickedUpWeapon1 = weapon;
+                currentWeapon = pickedUpWeapon1;
+            }
+
+            WeaponChanged();
+        }
+
+
+        private WeaponDescriptor CheckWeaponComboList()
+        {
+            for(int i = 0; i < combinedWeaponsList.Length; i++)
+            {
+                if (combinedWeaponsList[i].components.CheckIfComboMet(pickedUpWeapon1, pickedUpWeapon2))
+                {
+                    return combinedWeaponsList[i];
+                }
+            }
+            return pickedUpWeapon1;
+        }
+        private void WeaponChanged()
+        {
+            // 
+        }
+
+    }
+        public enum AttackType
+        {
+            MELEE,
+            THROWN,
+            RANGED,
+            ARENAEFFECT,
+        }
+}

@@ -8,5 +8,7 @@ namespace GGJ
         [Header("Melee Weapon Settings")]
         public float knockBack;
         public bool ragdollsOnHit;
+        public bool canLunge;
+        public float lungeDistance;
     }
 }
