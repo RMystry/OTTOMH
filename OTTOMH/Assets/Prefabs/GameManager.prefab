@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8301572237624511196}
   - component: {fileID: 4148402712475208880}
   - component: {fileID: 5015467903143150010}
+  - component: {fileID: 4317095465977894208}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0, y: 10.87, z: -9.64}
+  ShoulderOffset: {x: 0, y: 20, z: -15}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 2
@@ -83,6 +84,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 2.5
+--- !u!114 &4317095465977894208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124550837550022434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0.75
+  m_FrequencyGain: 0.75
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &2421417515828219832
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +160,7 @@ GameObject:
   - component: {fileID: 5786138104546419166}
   - component: {fileID: 1044002815287611032}
   - component: {fileID: 2171385056047132521}
+  - component: {fileID: 2432233922576051904}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -259,6 +278,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentHoveredInteractable: {fileID: 11400000, guid: 8f27bd9693f4fb042bd8ae5726aca46c,
     type: 2}
+--- !u!114 &2432233922576051904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3508258448567216826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819ae5ff8a7dca46bd2212c9f427cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfSpawnableWeapons: {fileID: 11400000, guid: 3d6fe07102092ca4e8c2b83d2398f2a8,
+    type: 2}
+  spawnItems: 1
+  SpawnRate: 2
 --- !u!1 &5055719639752754867
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +444,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0, y: -1, z: 0}
+  m_DefaultVelocity: {x: -0.25, y: -1, z: 0}
 --- !u!114 &2277907336816026689
 MonoBehaviour:
   m_ObjectHideFlags: 0
