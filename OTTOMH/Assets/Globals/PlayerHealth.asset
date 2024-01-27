@@ -9,15 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff30e9c1ebebc92498b903e31412d90f, type: 3}
-  m_Name: Pistol
+  m_Script: {fileID: 11500000, guid: 4b33d17ad4924d7479c463e5e06c2f09, type: 3}
+  m_Name: PlayerHealth
   m_EditorClassIdentifier: 
-  weaponName: Gun
-  weaponDescription: Just an actual gun.
-  weaponClass: 1
-  damage: 0
-  range: 0
-  attackSpeed: 0
-  weaponPrefab: {fileID: 0}
-  shotCount: 0
-  spread: 0
+  Value: 30

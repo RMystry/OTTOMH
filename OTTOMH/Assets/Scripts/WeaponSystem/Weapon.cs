@@ -14,8 +14,10 @@ namespace GGJ
         public float range;
         public float attackSpeed;
         public GameObject weaponPrefab;
-    }
 
+        [Header("Weapon Combo")]
+        public WeaponComponents components;
+    }
 
     [CreateAssetMenu(menuName = "Gameplay/Weapons/Arena Effect", fileName = "New Arena Effect")]
     public class ArenaEffect : WeaponDescriptor

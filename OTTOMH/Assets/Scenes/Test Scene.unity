@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17985545, g: 0.22519386, b: 0.30664355, a: 1}
+  m_IndirectSpecularColor: {r: 0.1798557, g: 0.2251942, b: 0.30664405, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -572,6 +572,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1846496513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2112162201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2991561009173156493, guid: bd89598ab51aafb46ba5c42fa3a08ad4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4132480384820737281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2127524096
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +708,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786138104546419166, guid: 31a8d8d310cb5d5418183356fabd7728,
+        type: 3}
+      propertyPath: m_debugEvents
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786138104546419166, guid: 31a8d8d310cb5d5418183356fabd7728,
+        type: 3}
+      propertyPath: m_UnityEvents.OnPlayerMoveInput.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786138104546419166, guid: 31a8d8d310cb5d5418183356fabd7728,
+        type: 3}
+      propertyPath: m_UnityEvents.OnPlayerMoveInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2112162201}
+    - target: {fileID: 5786138104546419166, guid: 31a8d8d310cb5d5418183356fabd7728,
+        type: 3}
+      propertyPath: m_UnityEvents.OnPlayerMoveInput.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6677957658549617631, guid: 31a8d8d310cb5d5418183356fabd7728,
         type: 3}
