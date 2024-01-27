@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GGJ
 {
-    public class ThrowableWeapon : WeaponBase
+    public class ThrowableWeapon : WeaponBase<ThrownWeaponDescriptor>
     {
         [Header("References")]
         public Transform cam;
@@ -38,7 +38,7 @@ namespace GGJ
         
         }
 
-        public override bool Attack(Vector3 position, out Collider collision)
+        public override bool Attack(Vector3 position, ThrownWeaponDescriptor descriptor, out Collider[] collision)
         {
             GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.transform.rotation);
 
