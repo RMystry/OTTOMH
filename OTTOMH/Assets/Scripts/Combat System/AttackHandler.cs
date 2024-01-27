@@ -15,7 +15,8 @@ namespace GGJ
 
         public FloatReference attackModifier;
 
-
+        public WeaponPrefabHandler prefabHandler;
+        
         [SerializeField] private MeleeWeaponDescriptor meleeWeaponType;
         [SerializeField] private ArenaEffectDescriptor arenaWeaponType;
         [SerializeField] private RangedWeaponDescriptor rangedWeaponType;
@@ -65,49 +66,57 @@ namespace GGJ
 
         public void CommandAttack()
         {
+            Collider[] collisions = null;
+            bool hit = false;
             // determine what to attack with.
             switch(currentWeaponAttackType)
             {
                 case AttackType.MELEE:
-                    AttackWithMeleeWeapon();
+                    hit = AttackWithMeleeWeapon(out collisions);
                     break;
                 case AttackType.RANGED:
-                    AttackWithRangedWeapon();
+                    hit = AttackWithRangedWeapon(out collisions);
                     break;
                 case AttackType.THROWN:
-                    AttackWithThrownWeapon();
+                    hit = AttackWithThrownWeapon(out collisions);
                     break;
                 case AttackType.ARENAEFFECT:
-                    AttackWithArenaWeapon();
+                    hit = AttackWithArenaWeapon(out collisions);
                     break;
+            }
+
+            if(hit)
+            {
+                OnSuccessfulHit(collisions);
             }
         }
 
 
-        public void AttackWithMeleeWeapon()
+        private bool AttackWithMeleeWeapon(out Collider[] collisions)
+        {
+            throw new NotImplementedException();
+            //return prefabHandler.UseWeapon<MeleeWeapon, MeleeWeaponDescriptor>(transform.position, meleeWeaponType, out collisions);
+        }
+
+        private bool AttackWithRangedWeapon(out Collider[] collisions)
+        {
+            return  prefabHandler.UseWeapon<RangedWeapon, RangedWeaponDescriptor>(transform.forward, rangedWeaponType, out collisions);
+        }
+
+        private bool AttackWithThrownWeapon(out Collider[] collisions)
+        {
+            return prefabHandler.UseWeapon<ThrowableWeapon, ThrownWeaponDescriptor>(transform.position, thrownWeaponType, out collisions);
+        }
+
+        private bool AttackWithArenaWeapon(out Collider[] collisions)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private void OnSuccessfulHit(Collider[] colliders)
         {
             
-        }
-
-        public void AttackWithRangedWeapon()
-        {
-
-        }
-
-        public void AttackWithThrownWeapon()
-        {
-
-        }
-
-        public void AttackWithArenaWeapon()
-        {
-
-        }
-
-
-        public void OnSuccessfulHit(Collider[] colliders)
-        {
-
         }
     }
 }
