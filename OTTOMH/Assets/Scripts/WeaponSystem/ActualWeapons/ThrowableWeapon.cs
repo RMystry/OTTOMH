@@ -16,7 +16,7 @@ namespace GGJ
 
         [Header("Throwing")]
         public float throwHeight;
-        public float itemTravelTime;
+      
         public void UpdateStates()
         {
 
@@ -79,7 +79,7 @@ namespace GGJ
         public void  throwItem( Transform item,  Vector3 targetPoint, float throwLength, float throwHeight)
         {
             var itemInAir = true;
-
+            float itemTravelTime = 0.0f;
             var trajectory = buildThrowTrajectory(item.position, targetPoint, throwLength, throwHeight);
 
             while (itemInAir)
