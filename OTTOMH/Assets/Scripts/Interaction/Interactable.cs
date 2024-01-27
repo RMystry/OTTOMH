@@ -51,7 +51,7 @@ namespace GGJ
                 return false;
             }
         }
-        public void Interact()
+        public virtual void Interact(GameObject interactionSource)
         {
             // interactable range. 
             if(GetIsInRange(out var dist))
@@ -76,6 +76,7 @@ namespace GGJ
             if (gameObject.layer != LayerMask.NameToLayer("Interactable"))
             {
                 gameObject.layer = LayerMask.NameToLayer("Interactable");
+
 
                 gameObject.GetComponentInChildren<Collider>().gameObject.layer = LayerMask.NameToLayer("Interactable");
             }

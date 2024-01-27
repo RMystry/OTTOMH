@@ -62,24 +62,25 @@ namespace GGJ
             // tries to cast the current weapon to another
             var attackType = AttackType.MELEE;
 
-            if(currentWeapon is MeleeWeapon)
+            if(currentWeapon is MeleeWeaponDescriptor)
             {
                 attackType = AttackType.MELEE;
             }
-            else if(currentWeapon is RangedWeapon)
+            else if(currentWeapon is RangedWeaponDescriptor)
             {
                 attackType = AttackType.RANGED;
             }
-            else if(currentWeapon is ThrownWeapon)
+            else if(currentWeapon is ThrownWeaponDescriptor)
             {
                 attackType = AttackType.THROWN;
             }
-            else if(currentWeapon is ArenaEffect)
+            else if(currentWeapon is ArenaEffectDescriptor)
             {
                 attackType = AttackType.ARENAEFFECT;
             }
 
             OnCurrentWeaponChanged?.Invoke(currentWeapon, attackType);
+            OnPrefabSwitch?.Invoke(currentWeapon.weaponPrefab);
         }
 
     }

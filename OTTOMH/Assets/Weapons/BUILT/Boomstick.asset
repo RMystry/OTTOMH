@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff30e9c1ebebc92498b903e31412d90f, type: 3}
+  m_Name: Boomstick
+  m_EditorClassIdentifier: 
+  weaponName: Boomstick
+  weaponDescription: This is a warcrime
+  weaponClass: 1
+  damage: 50
+  range: 5
+  attackSpeed: 0.7
+  weaponPrefab: {fileID: 0}
+  components:
+    weapon1: {fileID: 11400000, guid: f719ec4d9eb4ab6419c33dd4f13295a2, type: 2}
+    weapon2: {fileID: 11400000, guid: fca93ab8e03d8474194462048f8fe7a6, type: 2}
+  shotCount: 12
+  spread: 0.08

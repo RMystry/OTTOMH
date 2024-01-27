@@ -3,7 +3,7 @@
 namespace GGJ
 {
     [CreateAssetMenu(menuName = "Gameplay/Weapons/Thrown", fileName = "New Thrown Weapon")]
-    public class ThrownWeapon : WeaponDescriptor
+    public class ThrownWeaponDescriptor : WeaponDescriptor
     {
         [Space]
         [Header("Thrown Settings")]
