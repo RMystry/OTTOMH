@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 namespace GGJ
 {
@@ -12,12 +15,8 @@ namespace GGJ
         public Transform attackPoint;
 
         [Header("Throwing")]
-        public float throwForce;
-        public float throwUpwardForce;
-
-       
-
-        public bool readyToThrow;
+        public float throwHeight;
+        public float itemTravelTime;
         public void UpdateStates()
         {
 
@@ -35,19 +34,68 @@ namespace GGJ
         // Update is called once per frame
         void Update()
         {
-        
+
         }
 
         public override bool Attack(Vector3 position, ThrownWeaponDescriptor descriptor, out Collider[] collision)
         {
             GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.transform.rotation);
 
-            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+            throwItem(projectile.transform, position, Vector3.Distance(position, projectile.transform.position), throwHeight);
 
-            Vector3 forceToAdd = cam.transform.forward * throwForce + cam.transform.up * throwUpwardForce;
-            projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
-            collision = null;
+            collision = new Collider[1];
+            collision[0] = projectile.GetComponent<Collider>();
             return true;
+        }
+
+        public AnimationCurve[] buildThrowTrajectory(Vector3 origin , Vector3 target, float throwLength, float throwHeight )
+        {
+            // Returns array of 3 AnimationCurves: 0/1/2 = X/Y/Z.
+
+            // Initalise trajectory array.
+            var trajectory= new AnimationCurve[3];
+            trajectory[0] = new AnimationCurve();
+            trajectory[1] = new AnimationCurve();
+            trajectory[2] = new AnimationCurve();
+
+            // Start point.
+            trajectory[0].AddKey(0.0f, origin.x);
+            trajectory[1].AddKey(0.0f, origin.y);
+            trajectory[2].AddKey(0.0f, origin.z);
+
+            // Mid point.
+            trajectory[0].AddKey(throwLength * 0.5f, (origin.x + target.x) * 0.5f);
+            trajectory[1].AddKey(throwLength * 0.5f, (origin.y + target.y) * 0.5f + throwHeight);
+            trajectory[2].AddKey(throwLength * 0.5f, (origin.z + target.z) * 0.5f);
+
+            // End point.
+            trajectory[0].AddKey(throwLength, target.x);
+            trajectory[1].AddKey(throwLength, target.y);
+            trajectory[2].AddKey(throwLength, target.y);
+
+            return trajectory;
+        }
+
+        public void  throwItem( Transform item,  Vector3 targetPoint, float throwLength, float throwHeight)
+        {
+            var itemInAir = true;
+
+            var trajectory = buildThrowTrajectory(item.position, targetPoint, throwLength, throwHeight);
+
+            while (itemInAir)
+            {
+                item.position = new Vector3(trajectory[0].Evaluate(itemTravelTime), trajectory[1].Evaluate(itemTravelTime), trajectory[2].Evaluate(itemTravelTime));
+
+                itemTravelTime += Time.deltaTime;
+                if (itemTravelTime > throwLength)
+                {
+                    itemInAir = false;
+                }
+
+            }
+
+            // Just to ensure that item is definitely at the target position after throw.
+            item.position = targetPoint;
         }
     }
 }
