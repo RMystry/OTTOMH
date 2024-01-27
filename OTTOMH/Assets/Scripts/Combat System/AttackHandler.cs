@@ -16,10 +16,10 @@ namespace GGJ
         public FloatReference attackModifier;
 
 
-        [SerializeField] private MeleeWeapon meleeWeaponType;
-        [SerializeField] private ArenaEffect arenaWeaponType;
-        [SerializeField] private RangedWeapon rangedWeaponType;
-        [SerializeField] private ThrownWeapon thrownWeaponType;
+        [SerializeField] private MeleeWeaponDescriptor meleeWeaponType;
+        [SerializeField] private ArenaEffectDescriptor arenaWeaponType;
+        [SerializeField] private RangedWeaponDescriptor rangedWeaponType;
+        [SerializeField] private ThrownWeaponDescriptor thrownWeaponType;
 
         public void CurrentWeaponWasChanged(WeaponDescriptor descriptor, AttackType attackType)
         {
@@ -27,14 +27,14 @@ namespace GGJ
             switch(attackType)
             {
                 case AttackType.MELEE:
-                    meleeWeaponType = descriptor as MeleeWeapon;
+                    meleeWeaponType = descriptor as MeleeWeaponDescriptor;
                     arenaWeaponType = null;
                     rangedWeaponType = null;
                     thrownWeaponType = null;
                     break;
                 case AttackType.ARENAEFFECT:
                     meleeWeaponType = null;
-                    arenaWeaponType = descriptor as ArenaEffect;
+                    arenaWeaponType = descriptor as ArenaEffectDescriptor;
                     rangedWeaponType = null;
                     thrownWeaponType = null;
                     break;
@@ -42,17 +42,17 @@ namespace GGJ
                     meleeWeaponType = null;
                     arenaWeaponType = null;
                     rangedWeaponType = null;
-                    thrownWeaponType = descriptor as ThrownWeapon;
+                    thrownWeaponType = descriptor as ThrownWeaponDescriptor;
                     break;
                 case AttackType.RANGED:
                     meleeWeaponType = null;
                     arenaWeaponType = null;
-                    rangedWeaponType = descriptor as RangedWeapon;
+                    rangedWeaponType = descriptor as RangedWeaponDescriptor;
                     thrownWeaponType = null;
                     break;
                 default:
                     currentWeaponAttackType = AttackType.MELEE;
-                    meleeWeaponType = descriptor as MeleeWeapon;
+                    meleeWeaponType = descriptor as MeleeWeaponDescriptor;
                     arenaWeaponType = null;
                     rangedWeaponType = null;
                     thrownWeaponType = null;

@@ -28,7 +28,7 @@ namespace GGJ
 
 
 
-        public float currentHealth { get { return currentHealth; } private set { CurrentHealthChanged(); currentHealth = value ; } }
+        public float currentHealth { get; private set; }
 
         private bool isDead = false;
         private bool canRegenerateHealth = false;
@@ -71,7 +71,7 @@ namespace GGJ
             if(regeneratingHealth && currentHealth < maxHealth)
             {
                 currentHealth += healthRegen * Time.deltaTime;
-
+                CurrentHealthChanged();
                 if(currentHealth >= maxHealth)
                 {
                     currentHealth = maxHealth;
@@ -123,6 +123,7 @@ namespace GGJ
             if(isDead) return;
 
             currentHealth -= damage;
+            CurrentHealthChanged();
 
             OnTakeDamage?.Invoke();
             TookDamage();

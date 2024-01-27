@@ -24,7 +24,7 @@ namespace GGJ
         {
             if(m_currentHoveredInteractable.Value != null)
             {
-                m_currentHoveredInteractable.Value.Interact();
+                m_currentHoveredInteractable.Value.Interact(GameManager.Player);
             }
         }
     }

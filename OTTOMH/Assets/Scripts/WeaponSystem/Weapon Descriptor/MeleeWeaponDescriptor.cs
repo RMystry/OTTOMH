@@ -3,7 +3,7 @@
 namespace GGJ
 {
     [CreateAssetMenu(menuName = "Gameplay/Weapons/Melee", fileName = "New Melee Weapon")]
-    public class MeleeWeapon : WeaponDescriptor
+    public class MeleeWeaponDescriptor : WeaponDescriptor
     {
         [Header("Melee Weapon Settings")]
         public float knockBack;
