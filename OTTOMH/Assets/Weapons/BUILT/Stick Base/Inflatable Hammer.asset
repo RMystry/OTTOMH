@@ -22,7 +22,7 @@ MonoBehaviour:
   components:
     weapon1: {fileID: 11400000, guid: f719ec4d9eb4ab6419c33dd4f13295a2, type: 2}
     weapon2: {fileID: 11400000, guid: 2ba63e5d28519654e9bccc00be1cae78, type: 2}
-  knockBack: 5
+  knockBack: 10
   ragdollsOnHit: 1
   canLunge: 0
   lungeDistance: 0

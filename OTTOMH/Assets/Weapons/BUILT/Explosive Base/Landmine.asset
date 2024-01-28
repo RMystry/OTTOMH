@@ -22,8 +22,8 @@ MonoBehaviour:
   components:
     weapon1: {fileID: 11400000, guid: bb5470a2cefad3846902abc61abdeb0e, type: 2}
     weapon2: {fileID: 11400000, guid: aaaca24f0aa6d574182356bcfc667d80, type: 2}
-  isExplosive: 0
-  doesKnockback: 0
+  isExplosive: 1
+  doesKnockback: 1
   thrownType: 0
   timeDelay: 0
   bounces: 0
