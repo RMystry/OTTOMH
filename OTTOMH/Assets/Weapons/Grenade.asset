@@ -16,12 +16,17 @@ MonoBehaviour:
   weaponDescription: How'd this get past TSA?
   weaponClass: 2
   damage: 35
-  range: 55
+  range: 2.5
   attackSpeed: 0.85
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 660308962758360417, guid: b030bb6874041a449b239917b8284f4a,
+    type: 3}
+  components:
+    weapon1: {fileID: 0}
+    weapon2: {fileID: 0}
   isExplosive: 1
   doesKnockback: 1
   thrownType: 2
   timeDelay: 0
   bounces: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 8430871929951649563, guid: fdf9c1276e603b7468e3bba6caa3b1e3,
+    type: 3}

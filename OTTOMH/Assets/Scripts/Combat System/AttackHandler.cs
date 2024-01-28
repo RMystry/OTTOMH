@@ -16,6 +16,8 @@ namespace GGJ
         public FloatReference attackModifier;
 
         public WeaponPrefabHandler prefabHandler;
+
+        private float damage;
         
         [SerializeField] private MeleeWeaponDescriptor meleeWeaponType;
         [SerializeField] private ArenaEffectDescriptor arenaWeaponType;
@@ -29,6 +31,7 @@ namespace GGJ
             canAttack = true;
             currentWeaponAttackType = attackType;
             attackSpeed = descriptor.attackSpeed;
+            damage = descriptor.damage;
             switch(attackType)
             {
                 case AttackType.MELEE:
@@ -139,16 +142,17 @@ namespace GGJ
 
         private void OnSuccessfulHit(Collider[] colliders)
         {
-            Debug.Log("HIT AN ENEMY!");
-
             for(int i = 0; i < colliders.Length; i++)
             {
-                Debug.Log("Hit: " + colliders[i]);
+                if (colliders[i].GetComponentInParent<HealthHandler>() != null)
+                    colliders[i].GetComponentInParent<HealthHandler>().TakeDamage(damage);
+
             }
         }
 
         internal void AttackInput(bool isPressed, Vector3 position)
         {
+            Debug.Log(position);
             CommandAttack(position);
         }
     }
