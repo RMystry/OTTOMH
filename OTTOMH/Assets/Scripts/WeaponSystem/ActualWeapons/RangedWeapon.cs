@@ -6,9 +6,6 @@ namespace GGJ
     public class RangedWeapon : WeaponBase<RangedWeaponDescriptor>
     {
         public Ray lastFiredShot;
-
-        public ParticleSystem particles;
-
         public override bool Attack(Vector3 position, RangedWeaponDescriptor descriptor, out Collider[] collision)
         {
             if (particles != null)

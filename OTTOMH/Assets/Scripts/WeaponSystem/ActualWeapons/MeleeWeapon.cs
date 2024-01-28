@@ -8,9 +8,6 @@ namespace GGJ
     {
         Vector3 castPosition;
         Vector3 size;
-
-        public ParticleSystem particles;
-
         public override bool Attack(Vector3 position, MeleeWeaponDescriptor descriptor, out Collider[] collision)
         {
             // this is really just directions. 
