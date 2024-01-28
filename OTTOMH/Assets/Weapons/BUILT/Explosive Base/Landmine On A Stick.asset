@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7888fbc6fa4c2474eabd7d6173e912ed, type: 3}
-  m_Name: InflatableHammer
+  m_Name: Landmine On A Stick
   m_EditorClassIdentifier: 
-  weaponName: Inflatable Hammer
-  weaponDescription: Inflatable
-  weaponClass: 0
-  damage: 1
-  range: 10
-  attackSpeed: 1.5
+  weaponName: Lunge Mine
+  weaponDescription: A landmine on a stick
+  weaponClass: 2
+  damage: 65
+  range: 3
+  attackSpeed: 1
   weaponPrefab: {fileID: 0}
   components:
-    weapon1: {fileID: 11400000, guid: 2ba63e5d28519654e9bccc00be1cae78, type: 2}
+    weapon1: {fileID: 11400000, guid: bb5470a2cefad3846902abc61abdeb0e, type: 2}
     weapon2: {fileID: 11400000, guid: f719ec4d9eb4ab6419c33dd4f13295a2, type: 2}
-  knockBack: 10
+  knockBack: 5
   ragdollsOnHit: 1
   canLunge: 1
-  lungeDistance: 5
+  lungeDistance: 3.5

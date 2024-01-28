@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7888fbc6fa4c2474eabd7d6173e912ed, type: 3}
+  m_Name: Wooden Ladle
+  m_EditorClassIdentifier: 
+  weaponName: Wooden Ladle
+  weaponDescription: Seeing this brought back bad memories. Wielding this gives me
+    the power to bless others with similar ones.
+  weaponClass: 3
+  damage: 35
+  range: 3
+  attackSpeed: 2
+  weaponPrefab: {fileID: 0}
+  components:
+    weapon1: {fileID: 11400000, guid: f719ec4d9eb4ab6419c33dd4f13295a2, type: 2}
+    weapon2: {fileID: 11400000, guid: aaaca24f0aa6d574182356bcfc667d80, type: 2}
+  knockBack: 3
+  ragdollsOnHit: 0
+  canLunge: 1
+  lungeDistance: 2.5

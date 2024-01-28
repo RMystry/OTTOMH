@@ -13,19 +13,18 @@ MonoBehaviour:
   m_Name: Microwave
   m_EditorClassIdentifier: 
   weaponName: Microwave
-  weaponDescription: Fires Marshmallows
-  weaponClass: 2
-  damage: 5
-  range: 10
-  attackSpeed: 1
+  weaponDescription: Fires a marshmallow bomb
+  weaponClass: 0
+  damage: 30
+  range: 20
+  attackSpeed: 0.5
   weaponPrefab: {fileID: 0}
   components:
-    weapon1: {fileID: 11400000, guid: 2ba63e5d28519654e9bccc00be1cae78, type: 2}
-    weapon2: {fileID: 11400000, guid: bb5470a2cefad3846902abc61abdeb0e, type: 2}
+    weapon1: {fileID: 0}
+    weapon2: {fileID: 0}
   isExplosive: 1
   doesKnockback: 1
-  thrownType: 1
-  timeDelay: 1
-  bounces: 4
-  projectile: {fileID: 919132149155446097, guid: fa5e3e00c1dd06a4eb1cd2846ce63d6a,
-    type: 3}
+  thrownType: 0
+  timeDelay: 0
+  bounces: 0
+  projectile: {fileID: 0}

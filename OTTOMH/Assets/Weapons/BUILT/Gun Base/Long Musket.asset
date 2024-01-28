@@ -9,19 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff30e9c1ebebc92498b903e31412d90f, type: 3}
-  m_Name: Minigun
+  m_Script: {fileID: 11500000, guid: 7888fbc6fa4c2474eabd7d6173e912ed, type: 3}
+  m_Name: Long Musket
   m_EditorClassIdentifier: 
-  weaponName: Minigun
-  weaponDescription: How'd we get this into the game??
-  weaponClass: 0
-  damage: 2
-  range: 100
-  attackSpeed: 5
-  weaponPrefab: {fileID: 7511565183019919638, guid: 8cb561a920026994dab7be91c0f3d00b,
-    type: 3}
+  weaponName: Musket
+  weaponDescription: This is like the normal gun, but LOOOOONG. Also we ran out of
+    ammo.
+  weaponClass: 1
+  damage: 35
+  range: 5
+  attackSpeed: 1.25
+  weaponPrefab: {fileID: 0}
   components:
     weapon1: {fileID: 11400000, guid: fca93ab8e03d8474194462048f8fe7a6, type: 2}
     weapon2: {fileID: 11400000, guid: fca93ab8e03d8474194462048f8fe7a6, type: 2}
-  shotCount: 2
-  spread: 0.01
+  knockBack: 1.5
+  ragdollsOnHit: 0
+  canLunge: 0
+  lungeDistance: 0

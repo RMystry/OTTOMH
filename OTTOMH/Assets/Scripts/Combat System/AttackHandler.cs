@@ -73,11 +73,8 @@ namespace GGJ
         {
             if (!canAttack) 
             {
-                Debug.Log("Can't Punch Shit!");
                 return;
             }
-
-            Debug.Log("TRYNA PUNCH SOMETHIN");
 
             Collider[] collisions = new Collider[0];
             bool hit = false;

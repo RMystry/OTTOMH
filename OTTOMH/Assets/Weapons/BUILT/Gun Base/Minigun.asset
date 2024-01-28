@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff30e9c1ebebc92498b903e31412d90f, type: 3}
-  m_Name: Boomstick
+  m_Name: Minigun
   m_EditorClassIdentifier: 
-  weaponName: Boomstick
-  weaponDescription: This is a warcrime
+  weaponName: Minigun
+  weaponDescription: 2nd amendment rights never felt so good.
   weaponClass: 1
-  damage: 50
-  range: 5
-  attackSpeed: 0.7
+  damage: 2.5
+  range: 30
+  attackSpeed: 10
   weaponPrefab: {fileID: 0}
   components:
-    weapon1: {fileID: 11400000, guid: f719ec4d9eb4ab6419c33dd4f13295a2, type: 2}
+    weapon1: {fileID: 11400000, guid: fca93ab8e03d8474194462048f8fe7a6, type: 2}
     weapon2: {fileID: 11400000, guid: fca93ab8e03d8474194462048f8fe7a6, type: 2}
-  shotCount: 12
-  spread: 0.08
+  shotCount: 1
+  spread: 0.05
