@@ -24,11 +24,11 @@ namespace GGJ
             {
                 isPlayer = true;
             }
-            //change this to work with a set number of predetermined leaders
+           /* //change this to work with a set number of predetermined leaders
             else if(Random.Range(0, 50) % 2 == 0)
             {
                 isLeader = true;
-            }
+            }*/
         }
 
         public void OnDrawGizmos()

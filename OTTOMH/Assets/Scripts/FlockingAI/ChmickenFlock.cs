@@ -10,9 +10,9 @@ namespace GGJ
     {
 
         public GameObject enemyPrefab;
-        public static int ArenaSize = 150;
-        public static int numberOfEnemies = 25;
-        public static int numberOfLeaders = 3;
+        [SerializeField] public static int ArenaSize = 150;
+        [SerializeField] public int numberOfEnemies = 25;
+        [SerializeField] public static int numberOfLeaders = 3;
         public static List<GameObject> allEnemys = new List<GameObject>();
 
         public static Vector3 GoalPos = Vector3.zero;
