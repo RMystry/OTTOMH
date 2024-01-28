@@ -9,6 +9,7 @@ namespace GGJ
         public EnemyRigidbodyController RagdollController;
         public GameObject Enemy;
         public Chmicken enemyMovement;
+        public HealthHandler healthHandler;
         // Start is called before the first frame update
         void Start()
         {
@@ -29,6 +30,11 @@ namespace GGJ
         public void OnRagdollCompleted()
         {
             enemyMovement.stopMovement= false;
+        }
+
+        public void OnDeath(ForceInfo force)
+        {
+            RagdollController.Kill(force);
         }
     }
 }

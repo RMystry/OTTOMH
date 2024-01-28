@@ -9,6 +9,7 @@ namespace GGJ
     {
         public HealthHandler _healthHandler;
         public AttackHandler _attackHandler;
+        public EnemyRagdollHandler _enemyRagdollHandler;
         public Chmicken MovementHandler;
         public int pollingRate = 10;
         public GameObject nearestObject;
@@ -36,6 +37,23 @@ namespace GGJ
             //Apply status effects to all the stats
         }
 
+        public void StartRagDoll(ForceInfo force)
+        {
+            if (_healthHandler.currentHealth <= 0)
+            {
+                _enemyRagdollHandler.OnDeath(force);
+            }
+            else
+            {
+                _enemyRagdollHandler.startRagdoll(force);
+            }
+        }
+
+        public void OnDeath()
+        {
+            ForceInfo force;
+            //_enemyRagdollHandler.OnDeath(force);
+        }
 
         private void LateUpdate()
         {
