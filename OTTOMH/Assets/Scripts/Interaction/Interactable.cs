@@ -68,10 +68,6 @@ namespace GGJ
 
         private void OnValidate()
         {
-            // move this component to the very top.
-            while (UnityEditorInternal.ComponentUtility.MoveComponentUp(this)) ;
-
-
             // set the interaction layer.
             if (gameObject.layer != LayerMask.NameToLayer("Interactable"))
             {

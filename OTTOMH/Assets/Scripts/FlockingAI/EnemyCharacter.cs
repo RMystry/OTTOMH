@@ -54,7 +54,6 @@ namespace GGJ
         public void OnDeath()
         {
             intVariable.Value += 50;
-            ForceInfo force;
             //_enemyRagdollHandler.OnDeath(force);
         }
 
