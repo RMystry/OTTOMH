@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,10 @@ namespace GGJ
         public bool done { get; private set; }
 
         private float range;
+
+        public ParticleSystem explosionParticleSystem;
+
+        public GlobalEvent explosionEvent;
 
         // Start is called before the first frame update
         void Start()
@@ -100,9 +105,23 @@ namespace GGJ
             }
 
             done = true;
-            //Destroy(gameObject);
+
+            if(explosionParticleSystem != null)
+            {
+                explosionParticleSystem.gameObject.SetActive(true);
+                explosionParticleSystem.Play();
+                Debug.Log("Waiting Some Time: " + explosionParticleSystem.main.duration * 5f);
+                yield return new WaitForSeconds(explosionParticleSystem.main.duration * 5f);
+            }
+
+            if(explosionEvent != null)
+                explosionEvent.Raise();
+
+            Debug.Log("Destroying now!");
+            Destroy(gameObject);
         }
 
+        
         private void OnDrawGizmos()
         {
             if (!done) return;
