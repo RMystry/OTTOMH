@@ -11,7 +11,7 @@ namespace GGJ
         // Update is called once per frame
         void Update()
         {
-            gameObject.GetComponentInChildren<TextMesh>().text = "Score: " + score;
+            gameObject.GetComponentInChildren<TextMesh>().text = "Score: " + score.Value;
         }
     }
 }

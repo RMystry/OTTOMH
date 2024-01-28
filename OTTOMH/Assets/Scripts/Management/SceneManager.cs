@@ -12,9 +12,12 @@ namespace GGJ
         [SerializeField]
         private int m_nextSceneIndex;
 
+        public ChmickenFlock flockManager;
+
         public void Start()
         {
             GameManager.Instance.SpawnPlayer(m_spawnLocation.position);
+            flockManager.CreateFlock();
         }
 
 

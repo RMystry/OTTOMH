@@ -20,14 +20,18 @@ namespace GGJ
         // Start is called before the first frame update
         void Start()
         {
+           
+        }
+
+        public void CreateFlock()
+        {
             allEnemys.Add(GameManager.Player);
             for (int i = 0; i < numberOfEnemies; i++)
             {
-                Vector3 pos = new Vector3 (Random.Range(-ArenaSize, ArenaSize), 0, Random.Range(-ArenaSize, ArenaSize));
+                Vector3 pos = new Vector3(Random.Range(-ArenaSize, ArenaSize), 0, Random.Range(-ArenaSize, ArenaSize));
                 allEnemys.Add(Instantiate(enemyPrefab, pos, Quaternion.identity));
             }
         }
-
         // Update is called once per frame
         void Update()
         {

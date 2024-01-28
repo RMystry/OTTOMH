@@ -79,7 +79,7 @@ namespace GGJ
 
             float dist;
             int groupSize = 0;
-            foreach(GameObject go in god)
+            foreach(GameObject go in god.ToArray())
             {
                 //move to player or leader
                 //leader will only move towards player
