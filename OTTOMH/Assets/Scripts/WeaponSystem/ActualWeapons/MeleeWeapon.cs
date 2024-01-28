@@ -13,6 +13,9 @@ namespace GGJ
             // this is really just directions. 
             // spherecast in an area ahead of the position.
 
+            OnAttackUnityEvent?.Invoke();
+
+
             if(particles != null)
             {
                 particles.Play();

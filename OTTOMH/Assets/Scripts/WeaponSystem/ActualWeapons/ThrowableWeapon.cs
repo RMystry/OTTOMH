@@ -19,6 +19,8 @@ namespace GGJ
 
         public override bool Attack(Vector3 position, ThrownWeaponDescriptor descriptor, out Collider[] collision)
         {
+            OnAttackUnityEvent?.Invoke();
+
             objectToThrow = descriptor.projectile;
             GameObject projectile = Instantiate(objectToThrow, transform.position, Quaternion.identity);
 

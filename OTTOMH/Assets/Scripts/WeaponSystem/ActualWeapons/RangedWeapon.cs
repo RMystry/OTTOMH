@@ -8,6 +8,8 @@ namespace GGJ
         public Ray lastFiredShot;
         public override bool Attack(Vector3 position, RangedWeaponDescriptor descriptor, out Collider[] collision)
         {
+            OnAttackUnityEvent?.Invoke();
+
             if (particles != null)
                 particles.Play();
 

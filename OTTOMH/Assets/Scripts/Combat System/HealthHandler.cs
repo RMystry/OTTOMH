@@ -137,6 +137,11 @@ namespace GGJ
             }
         }
 
+        public void TakeDamage(WeaponDescriptor descriptor)
+        {
+            TakeDamage(descriptor.damage);
+        }
+
 
         private void CurrentHealthChanged()
         {

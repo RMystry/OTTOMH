@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 0}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6875981643498237282
 GameObject:
   m_ObjectHideFlags: 0
