@@ -13,7 +13,7 @@ namespace GGJ
         public GameObject objectToThrow;
 
         [Header("Throwing")]
-        public float throwHeight;
+        public float throwHeight = 10.0f;
       
         public void UpdateStates()
         {
