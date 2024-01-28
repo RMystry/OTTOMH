@@ -7,11 +7,11 @@ namespace GGJ
 {
     public class Chmicken : MonoBehaviour
     {
-        public float speed = 1.0f;
+        public float speed = 12.0f;
         float rotationSpeed = 4.0f;
         Vector3 averageHeading;
         Vector3 averagePosition;
-        [SerializeField]float neighbourDistance = 10.0f;
+        [SerializeField]float neighbourDistance = 500.0f;
         bool turning = false;
         bool isPlayer;
         bool isLeader;
@@ -82,7 +82,7 @@ namespace GGJ
             {
                 //move to player or leader
                 //leader will only move towards player
-                if(GoalObject != null)
+                /*if(GoalObject != null)
                 {    
                     dist = Vector3.Distance(GoalObject.transform.position, this.transform.position);
                     if (dist <= neighbourDistance)
@@ -98,8 +98,8 @@ namespace GGJ
                         gSpeed = gSpeed + another.speed;
                     }
                     goalPos = GoalObject.transform.position;
-                }
-                else if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer || (go.GetComponent<Chmicken>().isLeader && !this.isLeader)))
+                }*/
+                if(go != this.gameObject && (go.GetComponent<Chmicken>().isPlayer /*|| (go.GetComponent<Chmicken>().isLeader && !this.isLeader))*/))
                 {
                     dist = Vector3.Distance(go.transform.position, this.transform.position);
                     if(dist <= neighbourDistance)

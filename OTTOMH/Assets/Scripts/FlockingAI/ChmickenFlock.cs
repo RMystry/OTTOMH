@@ -10,7 +10,7 @@ namespace GGJ
     {
 
         public GameObject enemyPrefab;
-        public static int ArenaSize = 25;
+        public static int ArenaSize = 150;
         public static int numberOfEnemies = 25;
         public static int numberOfLeaders = 3;
         public static List<GameObject> allEnemys = new List<GameObject>();
