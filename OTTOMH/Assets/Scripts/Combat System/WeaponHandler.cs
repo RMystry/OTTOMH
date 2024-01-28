@@ -55,7 +55,8 @@ namespace GGJ
                     return combinedWeaponsList[i];
                 }
             }
-            return pickedUpWeapon1;
+
+            return pickedUpWeapon2;
         }
         private void WeaponChanged()
         {

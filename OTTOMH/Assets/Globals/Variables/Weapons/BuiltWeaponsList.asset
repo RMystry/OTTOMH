@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: BuiltWeaponsList
   m_EditorClassIdentifier: 
   Value:
+  - {fileID: 11400000, guid: 73c302909f756b343861815a6ea6013e, type: 2}
+  - {fileID: 11400000, guid: 2532027cd423d8348b57209eba9e8aaf, type: 2}
+  - {fileID: 11400000, guid: 46d3983a9fa185543971b7da7f3a062e, type: 2}
   - {fileID: 11400000, guid: fde050ef712cb09428b2d2a60a70de63, type: 2}
-  - {fileID: 11400000, guid: a8676e9a26eca494bb2a23308da5c72e, type: 2}
-  - {fileID: 11400000, guid: 5c0a28705229c6f42bf66756f4c1f2e9, type: 2}
-  - {fileID: 11400000, guid: 173bf7f3bf6a93249953b9ca676192a6, type: 2}
-  - {fileID: 11400000, guid: 7054befa1d61e5a4f92cfb7532080c6e, type: 2}
+  - {fileID: 11400000, guid: b401820405bb77145adf63b21c5e60f5, type: 2}
+  - {fileID: 11400000, guid: 77bc7e40685dc8d41ab6e4e957217385, type: 2}
+  - {fileID: 11400000, guid: 1448871fd7b7cf343a8fc88ea861307f, type: 2}
+  - {fileID: 11400000, guid: 7c8860d740d89d043871016ea22e813b, type: 2}
+  - {fileID: 11400000, guid: b98d1d1bd19bf6a4fb0d67399c1d3ee2, type: 2}
+  - {fileID: 11400000, guid: 94d5978ef9eb5a243960f8e8e8339822, type: 2}
+  - {fileID: 11400000, guid: f7aa4d8be72e9db40b1718628b7b9ac9, type: 2}
+  - {fileID: 11400000, guid: 4d40df132972d194faca923ca7df1120, type: 2}
+  - {fileID: 11400000, guid: cfe4d112f7307a74c88ffa874db1c374, type: 2}
+  - {fileID: 11400000, guid: 8406311dc998b044784f148b1666eccb, type: 2}
+  - {fileID: 11400000, guid: 3747a585c4a360f418d3251658697064, type: 2}
+  - {fileID: 11400000, guid: da41466593e8afd4b89a2e98469bc2e4, type: 2}
+  - {fileID: 11400000, guid: 5f678b1242318b9429dd315801c610c2, type: 2}
+  - {fileID: 11400000, guid: bae2023573f67be4ea22e5344296d468, type: 2}
+  - {fileID: 11400000, guid: 604bb61f4ba167046b6b33dd0fb0791f, type: 2}
+  - {fileID: 11400000, guid: 8aa1ae951d11c16458bb2d3d6afad60f, type: 2}
