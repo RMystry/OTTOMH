@@ -18,7 +18,8 @@ MonoBehaviour:
   damage: 65
   range: 3
   attackSpeed: 1
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 660308962758360417, guid: 46b713b012141a44689c7e36a88cf165,
+    type: 3}
   components:
     weapon1: {fileID: 11400000, guid: bb5470a2cefad3846902abc61abdeb0e, type: 2}
     weapon2: {fileID: 11400000, guid: f719ec4d9eb4ab6419c33dd4f13295a2, type: 2}
