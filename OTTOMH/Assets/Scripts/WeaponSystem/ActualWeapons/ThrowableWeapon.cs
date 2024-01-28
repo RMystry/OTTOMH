@@ -43,8 +43,17 @@ namespace GGJ
 
             throwItem(projectile.transform, position, Vector3.Distance(position, projectile.transform.position), throwHeight);
 
-            collision = new Collider[1];
-            collision[0] = projectile.GetComponent<Collider>();
+            var collisionSphere = Physics.SphereCastAll(projectile.transform.position, descriptor.range, Vector3.zero);
+            List<Collider> colliders = new List<Collider>();    
+
+            foreach(var hit in collisionSphere)
+            {
+                if(hit.collider.GetComponentInParent<HealthHandler>() != null)
+                {
+                    colliders.Add(hit.collider);
+                }
+            }
+            collision = colliders.ToArray();
             return true;
         }
 
