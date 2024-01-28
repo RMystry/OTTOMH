@@ -6,8 +6,14 @@ namespace GGJ
     public class RangedWeapon : WeaponBase<RangedWeaponDescriptor>
     {
         public Ray lastFiredShot;
+
+        public ParticleSystem particles;
+
         public override bool Attack(Vector3 position, RangedWeaponDescriptor descriptor, out Collider[] collision)
         {
+            if (particles != null)
+                particles.Play();
+
             var shootPosition = GameManager.Player.transform.position + new Vector3(0f, 0.75f, 0f);
             bool hits = false; 
             // okay so I need to calculate a forward rotation to set the direction to based on the ranged weapon's 

@@ -3,7 +3,9 @@ guid: 3b321204dc491444b9de7c1e0e86f1f3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - explosionParticleSystem: {instanceID: 0}
+  - explosionEvent: {fileID: 11400000, guid: 7bdd19708ac4bbf40b2521cfa2455960, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
