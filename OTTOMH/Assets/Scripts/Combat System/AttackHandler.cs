@@ -22,11 +22,13 @@ namespace GGJ
         [SerializeField] private RangedWeaponDescriptor rangedWeaponType;
         [SerializeField] private ThrownWeaponDescriptor thrownWeaponType;
 
-        
-
+        public float attackSpeed;
+        public bool canAttack = true;
         public void CurrentWeaponWasChanged(WeaponDescriptor descriptor, AttackType attackType)
         {
+            canAttack = true;
             currentWeaponAttackType = attackType;
+            attackSpeed = descriptor.attackSpeed;
             switch(attackType)
             {
                 case AttackType.MELEE:
@@ -64,9 +66,17 @@ namespace GGJ
 
         }
 
-        public void CommandAttack()
+        public void CommandAttack(Vector3 position)
         {
-            Collider[] collisions = null;
+            if (!canAttack) 
+            {
+                Debug.Log("Can't Punch Shit!");
+                return;
+            }
+
+            Debug.Log("TRYNA PUNCH SOMETHIN");
+
+            Collider[] collisions = new Collider[0];
             bool hit = false;
             // determine what to attack with.
             switch(currentWeaponAttackType)
@@ -78,10 +88,10 @@ namespace GGJ
                     hit = AttackWithRangedWeapon(transform.forward,out collisions);
                     break;
                 case AttackType.THROWN:
-                    hit = AttackWithThrownWeapon(out collisions);
+                    hit = AttackWithThrownWeapon(position, out collisions);
                     break;
                 case AttackType.ARENAEFFECT:
-                    hit = AttackWithArenaWeapon(out collisions);
+                    hit = AttackWithArenaWeapon(position, out collisions);
                     break;
             }
 
@@ -89,23 +99,36 @@ namespace GGJ
             {
                 OnSuccessfulHit(collisions);
             }
+
+            canAttack = false;
+
+            StartCoroutine(AttackTimer());
         }
 
+        private IEnumerator AttackTimer()
+        {
+            yield return new WaitForSeconds(1 / attackSpeed);
+
+            canAttack = true;
+        }
 
         private bool AttackWithMeleeWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
-            throw new NotImplementedException();
-            //return prefabHandler.UseWeapon<MeleeWeapon, MeleeWeaponDescriptor>(transform.position, meleeWeaponType, out collisions);
+            // if we have a lunge, lunge forward
+
+            var pos = transform.position + transform.forward * meleeWeaponType.range;
+
+            return prefabHandler.UseWeapon(pos, meleeWeaponType, out collisions);
         }
 
         private bool AttackWithRangedWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
-            return  prefabHandler.UseWeapon<RangedWeapon, RangedWeaponDescriptor>(transform.forward, rangedWeaponType, out collisions);
+            return  prefabHandler.UseWeapon(targetPosition, rangedWeaponType, out collisions);
         }
 
         private bool AttackWithThrownWeapon(Vector3 targetPosition, out Collider[] collisions)
         {
-            return prefabHandler.UseWeapon<ThrowableWeapon, ThrownWeaponDescriptor>(transform.position, thrownWeaponType, out collisions);
+            return prefabHandler.UseWeapon(targetPosition, thrownWeaponType, out collisions);
         }
 
         private bool AttackWithArenaWeapon(Vector3 targetPosition, out Collider[] collisions)
@@ -116,7 +139,17 @@ namespace GGJ
 
         private void OnSuccessfulHit(Collider[] colliders)
         {
-            
+            Debug.Log("HIT AN ENEMY!");
+
+            for(int i = 0; i < colliders.Length; i++)
+            {
+                Debug.Log("Hit: " + colliders[i]);
+            }
+        }
+
+        internal void AttackInput(bool isPressed, Vector3 position)
+        {
+            CommandAttack(position);
         }
     }
 }

@@ -17,9 +17,13 @@ namespace GGJ
         [SerializeField]
         private PlayerMovement m_playerMovement;
 
+        [SerializeField]
+        private AttackHandler m_attackHandler;
+
         private void Awake()
         {
             m_playerMovement = GetComponent<PlayerMovement>();
+            m_attackHandler = GetComponent<AttackHandler>();
         }
 
         public void ConnectPlayerMovementToInputs(PlayerInputHandler inputHandler)
@@ -36,6 +40,22 @@ namespace GGJ
             }
 
             m_playerMovement.Enable(inputHandler);
+        }
+
+        public void SetupCombatInputs(PlayerInputHandler inputHandler)
+        {
+            if (inputHandler == null)
+            {
+                Debug.LogWarning("Input Handler is Null");
+                return;
+            }
+            else if (m_attackHandler == null)
+            {
+                Debug.LogWarning("Attack Handler not found! attempting to find it.");
+                m_attackHandler = GetComponent<AttackHandler>();
+            }
+
+            inputHandler.OnPlayerInputAttack += m_attackHandler.AttackInput;
         }
 
         internal void Register()

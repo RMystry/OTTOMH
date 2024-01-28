@@ -109,6 +109,8 @@ namespace GGJ
                 return;
             }
             handler.ConnectPlayerMovementToInputs(m_inputHandler);
+            handler.SetupCombatInputs(m_inputHandler);
+
         }
 
 

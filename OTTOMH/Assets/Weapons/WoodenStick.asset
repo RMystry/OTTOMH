@@ -18,6 +18,12 @@ MonoBehaviour:
   damage: 5
   range: 2.5
   attackSpeed: 1.5
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 660308962758360417, guid: 86292f6a97b63784daf757cf9a61a883,
+    type: 3}
+  components:
+    weapon1: {fileID: 0}
+    weapon2: {fileID: 0}
   knockBack: 2
   ragdollsOnHit: 0
+  canLunge: 0
+  lungeDistance: 0

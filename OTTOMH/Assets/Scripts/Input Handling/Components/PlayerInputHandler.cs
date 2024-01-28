@@ -27,10 +27,11 @@ namespace GGJ
         // Regular, subscribable events.
         public delegate void PlayerInputButton(bool isPressed);
         public delegate void PlayerInputVector2(Vector2 inputDir);
+        public delegate void PlayerInputVector3(bool isPressed, Vector3 position);
         public delegate void PlayerInput();
 
         public event PlayerInputVector2 OnPlayerInputMove;
-        public event PlayerInputButton OnPlayerInputAttack;
+        public event PlayerInputVector3 OnPlayerInputAttack;
         public event PlayerInput OnPlayerInputActivate;
         public event PlayerInput OnPlayerInputDodge;
         public event PlayerInput OnPlayerInputDropItem;
@@ -173,7 +174,7 @@ namespace GGJ
             {
                 m_UnityEvents.OnPlayerAttackInput?.Invoke(ctx.ReadValueAsButton());
             }
-            OnPlayerInputAttack?.Invoke(ctx.ReadValueAsButton());
+            OnPlayerInputAttack?.Invoke(ctx.ReadValueAsButton(), PlayerLook.targetPosition);
         }
 
         private void PlayerMove(InputAction.CallbackContext ctx)

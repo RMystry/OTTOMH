@@ -28,7 +28,7 @@ namespace GGJ
 
         public void Attack()
         {
-            _attackHandler.CommandAttack();
+            _attackHandler.CommandAttack(Vector3.zero);
         }
 
         public void ApplyEffects()

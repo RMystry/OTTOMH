@@ -77,8 +77,11 @@ namespace GGJ
                         m_targetInteractable.SetValue(interactableHit.collider.GetComponent<Interactable>());
                     }
 
-                    m_targetInteractable.Value.Hover(true);
-                    OnInteractableHovered.Raise();
+                    if(m_targetInteractable.Value != null)
+                    {
+                        m_targetInteractable.Value.Hover(true);
+                        OnInteractableHovered.Raise();
+                    }
                 }
             }
             else if (m_targetInteractable.Value != null)

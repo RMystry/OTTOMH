@@ -27,5 +27,45 @@ namespace GGJ
                 return false;
             }
         }
+        public bool UseWeapon(Vector3 pos, RangedWeaponDescriptor descriptor, out Collider[] collisions)        
+        {
+            var weaponBase = instantiatedObject.GetComponent<RangedWeapon>();
+            if (weaponBase != null)
+            {
+                return weaponBase.Attack(pos, descriptor, out collisions);
+            }
+            else
+            {
+                collisions = null;
+                return false;
+            }
+        }
+        public bool UseWeapon(Vector3 pos, MeleeWeaponDescriptor descriptor, out Collider[] collisions)
+        {
+            var weaponBase = instantiatedObject.GetComponent<MeleeWeapon>();
+            if (weaponBase != null)
+            {
+                return weaponBase.Attack(pos, descriptor, out collisions);
+            }
+            else
+            {
+                collisions = null;
+                return false;
+            }
+        }
+        public bool UseWeapon(Vector3 pos, ThrownWeaponDescriptor descriptor, out Collider[] collisions)
+        {
+            var weaponBase = instantiatedObject.GetComponent<ThrowableWeapon>();
+            if (weaponBase != null)
+            {
+                return weaponBase.Attack(pos, descriptor, out collisions);
+            }
+            else
+            {
+                collisions = null;
+                return false;
+            }
+        }
+
     }
 }
