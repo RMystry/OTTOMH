@@ -15,6 +15,7 @@ namespace GGJ
         bool turning = false;
         bool isPlayer;
         bool isLeader;
+        public bool stopMovement = false;
         public GameObject GoalObject;
         // Start is called before the first frame update
         void Start()
@@ -44,7 +45,7 @@ namespace GGJ
         // Update is called once per frame
         void Update()
         {
-            if (!isPlayer)
+            if (!isPlayer && !stopMovement)
             {
                 turning = Vector3.Distance(transform.position, Vector3.zero) >= ChmickenFlock.ArenaSize;
 

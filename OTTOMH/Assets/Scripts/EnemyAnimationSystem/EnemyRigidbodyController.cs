@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace GGJ
@@ -13,7 +14,7 @@ namespace GGJ
         }
 
 
-        private enum CurrentState
+        public enum CurrentState
         {
             NORMAL,
             RAGDOLL,
@@ -23,7 +24,8 @@ namespace GGJ
         }
 
 
-
+        public UnityEvent OnRagdollComplete;
+        
 
         [SerializeField]
         Rigidbody[] m_rigidbodies;
@@ -203,15 +205,13 @@ namespace GGJ
                 PopulateAnimationStartBoneTransforms(animToPlay, m_standupBoneTransforms);
 
                 StartCoroutine(ResetBones(animToPlay));
-
-
             }
             else
             {
                 m_animator.enabled = true;
                 m_currentState = CurrentState.NORMAL;
             }
-
+            OnRagdollComplete.Invoke();
         }
 
         private IEnumerator ResetBones(string animToPlay)

@@ -116,6 +116,12 @@ GameObject:
   - component: {fileID: 1106099438496792783}
   - component: {fileID: 3164687727200376122}
   - component: {fileID: 8898372620929934483}
+  - component: {fileID: -4165629079133688876}
+  - component: {fileID: 1431638063912786704}
+  - component: {fileID: 7309370885019562518}
+  - component: {fileID: -1454334989715500357}
+  - component: {fileID: -2495766259550854300}
+  - component: {fileID: -3437016303333504578}
   m_Layer: 0
   m_Name: Flocking
   m_TagString: Chmicken
@@ -180,7 +186,172 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   neighbourDistance: 150
+  stopMovement: 0
   GoalObject: {fileID: 0}
+--- !u!114 &-4165629079133688876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714b19dc05f1bb149b654f1ccef1802c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RagdollController: {fileID: 1431638063912786704}
+  Enemy: {fileID: 3658503556309223352}
+  enemyMovement: {fileID: 8898372620929934483}
+  healthHandler: {fileID: 7309370885019562518}
+--- !u!114 &1431638063912786704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3582d206978f428ca590bbc678760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnRagdollComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4165629079133688876}
+        m_TargetAssemblyTypeName: GGJ.EnemyRagdollHandler, GGJ
+        m_MethodName: OnRagdollCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_rigidbodies:
+  - {fileID: 3164687727200376122}
+  m_animator: {fileID: 0}
+  m_timeToWakeUp: 2
+  m_currentState: 0
+  m_standUpFaceStateName: 
+  m_standUpBackStateName: 
+  m_bodyHitStateName: 
+  m_resetBoneTime: 1.35
+--- !u!114 &7309370885019562518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b091671507e1f1c498660824aba527ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthRef:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  healthRegenerationRateRef:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  healthRegenerationDelayRef:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  OnCurrentHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -3437016303333504578}
+        m_TargetAssemblyTypeName: GGJ.EnemyCharacter, GGJ
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  currentHealth: 0
+--- !u!114 &-1454334989715500357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47861733b1d1b784a8d96744cc1f4ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickedUpWeapon1: {fileID: 0}
+  pickedUpWeapon2: {fileID: 0}
+  combinedWeaponsList: {fileID: 11400000, guid: d80a63abb29e261468d6427bc5ee2391,
+    type: 2}
+  currentWeapon: {fileID: 0}
+  OnCurrentWeaponChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPrefabSwitch:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-2495766259550854300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275e0d7e1ed138745aa3be3b9c60257b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponAttackType: 0
+  attackModifier:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  prefabHandler: {fileID: 0}
+  meleeWeaponType: {fileID: 0}
+  arenaWeaponType: {fileID: 0}
+  rangedWeaponType: {fileID: 0}
+  thrownWeaponType: {fileID: 0}
+  attackSpeed: 0
+  canAttack: 1
+--- !u!114 &-3437016303333504578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658503556309223352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1271e3eb172f41240926764d9537125b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthHandler: {fileID: 7309370885019562518}
+  _attackHandler: {fileID: -2495766259550854300}
+  _enemyRagdollHandler: {fileID: -4165629079133688876}
+  MovementHandler: {fileID: 8898372620929934483}
+  pollingRate: 10
+  nearestObject: {fileID: 0}
+  polling: 0
 --- !u!1 &4500917039811759370
 GameObject:
   m_ObjectHideFlags: 0
