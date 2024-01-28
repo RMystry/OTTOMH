@@ -10,9 +10,7 @@ namespace GGJ
     public class ThrowableWeapon : WeaponBase<ThrownWeaponDescriptor>
     {
         [Header("References")]
-        public Transform cam;
         public GameObject objectToThrow;
-        public Transform attackPoint;
 
         [Header("Throwing")]
         public float throwHeight;
@@ -39,7 +37,7 @@ namespace GGJ
 
         public override bool Attack(Vector3 position, ThrownWeaponDescriptor descriptor, out Collider[] collision)
         {
-            GameObject projectile = Instantiate(objectToThrow, transform.position, cam.transform.rotation);
+            GameObject projectile = Instantiate(objectToThrow, transform.position, transform.rotation);
 
             throwItem(projectile.transform, position, Vector3.Distance(position, projectile.transform.position), throwHeight);
 
