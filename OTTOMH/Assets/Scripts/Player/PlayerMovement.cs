@@ -42,6 +42,8 @@ namespace GGJ
         private bool m_canDodge = false;
         private float m_dodgeTimer = 0f;
 
+        public float TopSpeed { get => m_topSpeed; set => m_topSpeed = value; }
+
         private void Awake()
         {
             m_handler = GetComponent<PlayerHandler>();

@@ -20,6 +20,14 @@ namespace GGJ
         {
         }
 
+        public void RagdollThisThing()
+        {
+            enemyMovement.stopMovement = true;
+
+
+            GetComponent<Rigidbody>().AddExplosionForce(500f, transform.position, 30f, 10f);
+        }
+
         public void startRagdoll(ForceInfo force)
         {
             enemyMovement.stopMovement = true;
