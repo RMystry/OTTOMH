@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  neighbourDistance: 100
+  neighbourDistance: 150
   GoalObject: {fileID: 0}
 --- !u!1 &4500917039811759370
 GameObject:
