@@ -417,6 +417,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  currentHealth: 0
 --- !u!114 &2445269857807815565
 MonoBehaviour:
   m_ObjectHideFlags: 0

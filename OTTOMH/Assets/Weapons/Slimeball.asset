@@ -18,10 +18,15 @@ MonoBehaviour:
   damage: 1
   range: 1.5
   attackSpeed: 2
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 660308962758360417, guid: c7381296cac8b3b4eacf8fe46d6ea705,
+    type: 3}
+  components:
+    weapon1: {fileID: 0}
+    weapon2: {fileID: 0}
   isExplosive: 0
   doesKnockback: 1
   thrownType: 1
   timeDelay: 0
   bounces: 3
-  projectile: {fileID: 0}
+  projectile: {fileID: 8430871929951649563, guid: fbe7c3f2a8a46eb4f8af366914562826,
+    type: 3}
