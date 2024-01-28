@@ -11,8 +11,10 @@ namespace GGJ
         public AttackHandler _attackHandler;
         public EnemyRagdollHandler _enemyRagdollHandler;
         public Chmicken MovementHandler;
+        public IntVariable intVariable;
         public int pollingRate = 10;
         public GameObject nearestObject;
+        public TextMesh Score;
         public int polling = 0;
         // Start is called before the first frame update
         void Start()
@@ -51,6 +53,7 @@ namespace GGJ
 
         public void OnDeath()
         {
+            intVariable.Value += 50;
             ForceInfo force;
             //_enemyRagdollHandler.OnDeath(force);
         }
