@@ -39,7 +39,7 @@ namespace GGJ
 
         public override bool Attack(Vector3 position, ThrownWeaponDescriptor descriptor, out Collider[] collision)
         {
-            GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.transform.rotation);
+            GameObject projectile = Instantiate(objectToThrow, transform.position, cam.transform.rotation);
 
             throwItem(projectile.transform, position, Vector3.Distance(position, projectile.transform.position), throwHeight);
 
